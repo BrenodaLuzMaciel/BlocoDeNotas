@@ -21,7 +21,6 @@ namespace BlocoDeNotas
             {
                 RenderizarMenu();
                 new LerEscolhaUsuario().EscolhaMenu();
-
             }
         }
 
@@ -30,11 +29,13 @@ namespace BlocoDeNotas
             Console.Clear();
             Console.WriteLine(EscolherMenu());
         }
-
+ 
         public string EscolherMenu()
         {
             return "1 - Iniciar editor de texto\n" +
-                   "2 - Procurar um arquivo salvo\n";
+                   "2 - Procurar um arquivo salvo\n" +
+                   "3 - Sair do programa\n";
+
         }
     }
 }

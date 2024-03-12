@@ -13,12 +13,12 @@ namespace BlocoDeNotas
         public void EscolhaMenu()
         {
 
-            Console.Write("Escolha um numero de 1 a 2 do Indice: ");
+            Console.Write("Escolha um numero de 1 a 3 do Indice: ");
             bool eUmNumero = int.TryParse(Console.ReadLine(), out int escolhaIndice);
 
             while (!eUmNumero)
             {
-                Console.Write("Escolha um numero de 1 a 2 do Indice: ");
+                Console.Write("Escolha um numero de 1 a 3 do Indice: ");
                 eUmNumero = int.TryParse(Console.ReadLine(), out escolhaIndice);
             }
 
@@ -26,16 +26,53 @@ namespace BlocoDeNotas
             switch (escolhaIndice)
             {
                 case 1:
+
                     Console.Clear();
-                    Console.Write("Digite o nome do seu arquivo:");
+                    Console.Write("Digite o nome do seu arquivo: ");
                     nomeArquivo = Console.ReadLine();
+                    //Verifica se o arquivo existe na pasta
+                    VerificaArquivo();
                     Console.WriteLine("Digite seu texto aqui:");
                     string escritaUsuario = Console.ReadLine();
                     ReceberEscritaUsuario(escritaUsuario);
                     break;
+
+                case 2:
+                    Console.Clear();
+                    break;
+
+                case 3:
+                    Environment.Exit(0);
+                    break;
             }
         }
 
+        private void VerificaArquivo()
+        {
+            string arquivo = @"C:\Users\Breno\source\repos\BlocoDeNotas\" + nomeArquivo;
+
+            FileInfo file = new FileInfo(arquivo);
+
+            if (!file.Exists)
+            {
+                Console.WriteLine("Nome disponível\n");
+                return;
+            }
+            if (file.Exists)
+            {
+                while (file.Exists)
+                {
+                    Console.Write("Este nome de arquivo já existe, digite outro nome: ");
+                    //nomeArquivo = null;
+                    nomeArquivo = Console.ReadLine();
+
+                    arquivo = @"C:\Users\Breno\source\repos\BlocoDeNotas\" + nomeArquivo;
+
+                    file = new FileInfo(arquivo);
+                }
+                Console.WriteLine("Nome disponível\n");
+            }
+        }
 
         private void ReceberEscritaUsuario(string escritaUsuario)
         {
