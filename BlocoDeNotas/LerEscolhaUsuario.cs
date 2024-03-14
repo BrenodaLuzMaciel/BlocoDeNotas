@@ -34,6 +34,9 @@ namespace BlocoDeNotas
                     VerificaArquivo();
                     Console.WriteLine("Digite seu texto aqui:");
                     string escritaUsuario = Console.ReadLine();
+                    Console.Write("\nDeseja Salvar? 'S' ou 'N': ");
+                    string sn = Console.ReadLine();
+                    SalvarArquivo(sn);
                     ReceberEscritaUsuario(escritaUsuario);
                     break;
 
@@ -47,6 +50,15 @@ namespace BlocoDeNotas
             }
         }
 
+        private void SalvarArquivo(string sn)
+        {
+            if (sn == "s" || sn == "S")
+                return;
+
+            else
+                new BlocoDeNotas().Iniciar();
+        }
+
         private void VerificaArquivo()
         {
             string arquivo = @"C:\Users\Breno\source\repos\BlocoDeNotas\" + nomeArquivo;
@@ -55,7 +67,7 @@ namespace BlocoDeNotas
 
             if (!file.Exists)
             {
-                Console.WriteLine("Nome disponível\n");
+                Console.WriteLine("\nNome disponível");
                 return;
             }
             if (file.Exists)
@@ -70,7 +82,7 @@ namespace BlocoDeNotas
 
                     file = new FileInfo(arquivo);
                 }
-                Console.WriteLine("Nome disponível\n");
+                Console.WriteLine("\nNome disponível");
             }
         }
 
@@ -84,12 +96,18 @@ namespace BlocoDeNotas
                 {
                     sw.WriteLine(escritaUsuario);
                 }
+                Console.WriteLine("\nTexto salvo com sucesso! ");
+                Console.WriteLine("Pressione qualquer tecla para voltar ao menu inicial! ");
+                Console.ReadLine();
             }
             catch (IOException e)
             {
                 Console.WriteLine("Um erro ocorreu!" + e);
             }
-
+            finally
+            {
+                new BlocoDeNotas().Iniciar();
+            }
         }
     }
 }
