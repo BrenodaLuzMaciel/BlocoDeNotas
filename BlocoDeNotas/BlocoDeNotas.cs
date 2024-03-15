@@ -32,8 +32,11 @@ namespace BlocoDeNotas
  
         public string EscolherMenu()
         {
-            return "1 - Iniciar editor de texto\n" +
-                   "2 - Procurar um arquivo salvo\n" +
+            return "Bem vindo ao seu bloco de notas\n" +
+                   "-------------------------------\n\n" + 
+                   
+                   "1 - Inserir uma nota\n" +
+                   "2 - Ver todas as notas\n" +
                    "3 - Sair do programa\n";
 
         }

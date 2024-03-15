@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace BlocoDeNotas
 {
@@ -13,12 +9,12 @@ namespace BlocoDeNotas
         public void EscolhaMenu()
         {
 
-            Console.Write("Escolha um numero de 1 a 3 do Indice: ");
+            Console.Write("Escolha um numero de 1 a 3 do Índice: ");
             bool eUmNumero = int.TryParse(Console.ReadLine(), out int escolhaIndice);
 
             while (!eUmNumero)
             {
-                Console.Write("Escolha um numero de 1 a 3 do Indice: ");
+                Console.Write("Escolha um numero de 1 a 3 do Índice: ");
                 eUmNumero = int.TryParse(Console.ReadLine(), out escolhaIndice);
             }
 
@@ -42,6 +38,7 @@ namespace BlocoDeNotas
 
                 case 2:
                     Console.Clear();
+                    new ManipuladorDeArquivos().TodasAsNotas();
                     break;
 
                 case 3:
@@ -61,7 +58,7 @@ namespace BlocoDeNotas
 
         private void VerificaArquivo()
         {
-            string arquivo = @"C:\Users\Breno\source\repos\BlocoDeNotas\" + nomeArquivo;
+            string arquivo = @"C:\Users\Breno\source\repos\BlocoDeNotas\Notas\" + nomeArquivo + ".txt";
 
             FileInfo file = new FileInfo(arquivo);
 
@@ -75,10 +72,10 @@ namespace BlocoDeNotas
                 while (file.Exists)
                 {
                     Console.Write("Este nome de arquivo já existe, digite outro nome: ");
-                    //nomeArquivo = null;
+
                     nomeArquivo = Console.ReadLine();
 
-                    arquivo = @"C:\Users\Breno\source\repos\BlocoDeNotas\" + nomeArquivo;
+                    arquivo = @"C:\Users\Breno\source\repos\BlocoDeNotas\Notas\" + nomeArquivo + ".txt";
 
                     file = new FileInfo(arquivo);
                 }
@@ -88,7 +85,7 @@ namespace BlocoDeNotas
 
         private void ReceberEscritaUsuario(string escritaUsuario)
         {
-            string saidaTexto = @"C:\Users\Breno\source\repos\BlocoDeNotas\" + nomeArquivo;
+            string saidaTexto = @"C:\Users\Breno\source\repos\BlocoDeNotas\Notas\" + nomeArquivo + ".txt";
 
             try
             {
