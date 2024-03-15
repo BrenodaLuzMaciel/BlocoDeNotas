@@ -42,6 +42,10 @@ namespace BlocoDeNotas
                     break;
 
                 case 3:
+
+                    break;
+
+                case 4:
                     Environment.Exit(0);
                     break;
             }
