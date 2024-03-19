@@ -16,26 +16,31 @@ namespace BlocoDeNotas
 
             Console.Clear();
 
-            Console.WriteLine("Conteúdo da nota " + nome);
-            Console.WriteLine("-----------------------\n");
-
             string sourcePath = @"C:\Users\Breno\source\repos\BlocoDeNotas\Notas\" + nome + ".txt";
 
-            //if (sourcePath)
-            //{
-
-            //}
-            using (StreamReader sr = new StreamReader(sourcePath))
+            FileInfo file = new FileInfo(sourcePath);
+            if (file.Exists)
             {
-                string[] lines = File.ReadAllLines(sourcePath);
-
-                foreach (string line in lines)
+                using (StreamReader sr = new StreamReader(sourcePath))
                 {
-                    Console.WriteLine(line);
+                    string[] lines = File.ReadAllLines(sourcePath);
+
+                    Console.WriteLine("Conteúdo da nota " + nome);
+                    Console.WriteLine("-----------------------\n");
+                    foreach (string line in lines)
+                    {
+                        Console.WriteLine(line);
+                    }
                 }
+                Console.WriteLine("\nPressione qualquer tecla para voltar ao menu iniciar");
+                Console.ReadLine();
             }
-            Console.WriteLine("\nPressione qualquer tecla para voltar ao menu iniciar");
-            Console.ReadLine();
+            else
+            {
+                Console.WriteLine("Nome de arquivo inválido");
+                Console.WriteLine("\nPressione qualquer tecla para voltar ao menu iniciar");
+                Console.ReadLine();
+            }
         }
     }
 }
