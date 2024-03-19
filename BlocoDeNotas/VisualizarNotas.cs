@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BlocoDeNotas
 {
-    internal class ManipuladorDeArquivos
+    internal class VisualizarNotas
     {
-        public void TodasAsNotas()
+        public void VerTodasAsNotas()
         {
             string path = @"C:\Users\Breno\source\repos\BlocoDeNotas\Notas";
 
@@ -21,7 +21,12 @@ namespace BlocoDeNotas
             foreach (string file in files)
                 Console.WriteLine(Path.GetFileNameWithoutExtension(file));
 
-            Console.ReadLine();
+            Console.WriteLine();
+            Console.Write("Deseja abrir alguma nota? S/N: ");
+            char abrir = char.Parse(Console.ReadLine());
+
+            if (abrir == 's' || abrir == 'S')
+                new AbrirUmaNota().VisualizarUmaNota();
         }
     }
 }

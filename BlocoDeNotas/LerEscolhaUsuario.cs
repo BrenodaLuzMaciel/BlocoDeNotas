@@ -9,18 +9,19 @@ namespace BlocoDeNotas
         public void EscolhaMenu()
         {
 
-            Console.Write("Escolha um numero de 1 a 3 do Índice: ");
+            Console.Write("Escolha um numero de 1 a 6 do Índice: ");
             bool eUmNumero = int.TryParse(Console.ReadLine(), out int escolhaIndice);
 
             while (!eUmNumero)
             {
-                Console.Write("Escolha um numero de 1 a 3 do Índice: ");
+                Console.Write("Escolha um numero de 1 a 6 do Índice: ");
                 eUmNumero = int.TryParse(Console.ReadLine(), out escolhaIndice);
             }
 
 
             switch (escolhaIndice)
             {
+                //Inserir uma nota
                 case 1:
 
                     Console.Clear();
@@ -36,16 +37,26 @@ namespace BlocoDeNotas
                     ReceberEscritaUsuario(escritaUsuario);
                     break;
 
+                //Ver todas as notas
                 case 2:
                     Console.Clear();
-                    new ManipuladorDeArquivos().TodasAsNotas();
+                    new VisualizarNotas().VerTodasAsNotas();
                     break;
 
+                // Editar uma nota
                 case 3:
-
+                    Console.Clear();
+                    new AbrirUmaNota().VisualizarUmaNota();
                     break;
 
+                // Imprimir uma nota
                 case 4:
+
+                // Excluir uma nota
+                case 5:
+
+                // Sair do programa
+                case 6:
                     Environment.Exit(0);
                     break;
             }
