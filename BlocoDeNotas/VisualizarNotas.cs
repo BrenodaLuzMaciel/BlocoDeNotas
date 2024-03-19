@@ -21,12 +21,6 @@ namespace BlocoDeNotas
             foreach (string file in files)
                 Console.WriteLine(Path.GetFileNameWithoutExtension(file));
 
-            Console.WriteLine();
-            Console.Write("Deseja abrir alguma nota? S/N: ");
-            char abrir = char.Parse(Console.ReadLine());
-
-            if (abrir == 's' || abrir == 'S')
-                new AbrirUmaNota().VisualizarUmaNota();
         }
     }
 }

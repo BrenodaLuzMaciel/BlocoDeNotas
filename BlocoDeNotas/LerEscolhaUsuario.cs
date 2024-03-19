@@ -41,17 +41,23 @@ namespace BlocoDeNotas
                 case 2:
                     Console.Clear();
                     new VisualizarNotas().VerTodasAsNotas();
+                    Console.WriteLine("\nPressione qualquer tecla para voltar ao início");
+                    Console.ReadLine();
                     break;
 
-                // Editar uma nota
+                // Visualiza uma nota
                 case 3:
                     Console.Clear();
+                    new VisualizarNotas().VerTodasAsNotas();
                     new AbrirUmaNota().VisualizarUmaNota();
+                    Console.WriteLine("\nPressione qualquer tecla para voltar ao início");
+                    Console.ReadLine();
                     break;
 
                 // Imprimir uma nota
                 case 4:
-
+                    
+                    break;
 
                 // Excluir uma nota
                 case 5:

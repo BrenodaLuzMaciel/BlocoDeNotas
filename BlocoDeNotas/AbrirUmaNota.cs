@@ -32,8 +32,6 @@ namespace BlocoDeNotas
                         Console.WriteLine(line);
                     }
                 }
-                Console.WriteLine("\nPressione qualquer tecla para voltar ao menu iniciar");
-                Console.ReadLine();
             }
             else
             {
