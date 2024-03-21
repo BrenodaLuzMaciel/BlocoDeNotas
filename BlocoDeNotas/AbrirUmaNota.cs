@@ -16,15 +16,21 @@ namespace BlocoDeNotas
 
             Console.Clear();
 
+            AbrirNotaEscolhida(nome);
+
+        }
+
+        public void AbrirNotaEscolhida(string nome)
+        {
+
             string sourcePath = @"C:\Users\Breno\source\repos\BlocoDeNotas\Notas\" + nome + ".txt";
 
             FileInfo file = new FileInfo(sourcePath);
+            string[] lines = File.ReadAllLines(sourcePath);
             if (file.Exists)
             {
                 using (StreamReader sr = new StreamReader(sourcePath))
                 {
-                    string[] lines = File.ReadAllLines(sourcePath);
-
                     Console.WriteLine("Conteúdo da nota " + nome);
                     Console.WriteLine("-----------------------\n");
                     foreach (string line in lines)
@@ -39,6 +45,7 @@ namespace BlocoDeNotas
                 Console.WriteLine("\nPressione qualquer tecla para voltar ao menu iniciar");
                 Console.ReadLine();
             }
+
         }
     }
 }

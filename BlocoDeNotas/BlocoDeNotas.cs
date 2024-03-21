@@ -38,9 +38,8 @@ namespace BlocoDeNotas
                    "1 - Inserir uma nota\n" +
                    "2 - Ver todas as notas\n" +
                    "3 - Abrir uma nota\n" +
-                   "4 - Imprimir uma nota\n" +
-                   "5 - Excluir uma nota\n" +
-                   "6 - Sair do programa\n";
+                   "4 - Excluir uma nota\n" +
+                   "5 - Sair do programa\n";
 
         }
     }
